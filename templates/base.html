@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlTag">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAPHAL</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="m-0 p-0 flex flex-col min-h-screen">
+
+<!-- ================= NAVBAR ================= -->
+<nav class="bg-[#556B2F] w-full">
+
+    <div class="flex flex-wrap items-center justify-between px-4 md:px-8 py-2 gap-4">
+
+        <!-- LOGO -->
+        <img src="{{ url_for('static', filename='image/logos/logo2.png') }}"
+             class="h-12 w-12 rounded-full object-cover">
+
+        <!-- MENU -->
+        <ul class="flex flex-wrap justify-center gap-7 md:gap-12 w-full md:w-auto">
+            <li><a href="{{ url_for('index') }}" data-i18n="inicio" class="text-white text-xs uppercase">Inicio</a></li>
+            <li><a href="{{ url_for('nosotros') }}" data-i18n="nosotros" class="text-white text-xs uppercase">Nosotros</a></li>
+            <li><a href="{{ url_for('produccion') }}" data-i18n="produccion" class="text-white text-xs uppercase">Producción Agrícola</a></li>
+            <li><a href="{{ url_for('servicios') }}" data-i18n="servicios" class="text-white text-xs uppercase">Servicios</a></li>
+            <li><a href="{{ url_for('alianzas') }}" data-i18n="alianzas" class="text-white text-xs uppercase">Alianzas</a></li>
+            <li><a href="{{ url_for('noticias') }}" data-i18n="noticias" class="text-white text-xs uppercase">Noticias</a></li>
+        </ul>
+
+        <!-- IDIOMA -->
+        <div class="flex gap-2">
+            <button onclick="cambiarIdioma('es')" class="bg-white text-[#2d3d1a] text-xs font-bold px-3 py-1 rounded-full hover:bg-yellow-300">ES</button>
+            <button onclick="cambiarIdioma('en')" class="bg-white text-[#2d3d1a] text-xs font-bold px-3 py-1 rounded-full hover:bg-yellow-300">EN</button>
+        </div>
+
+    </div>
+</nav>
+
+<!-- ================= CONTENIDO ================= -->
+<main class="flex-1">
+    {% block content %}
+    {% endblock %}
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="relative text-white mx-8 mb-8 overflow-hidden">
+
+    <!-- IMAGEN FONDO -->
+    <div class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('{{ url_for('static', filename='image/campo/campo5.png') }}');">
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-[#556B2F] opacity-75"></div>
+
+    <!-- CONTENIDO -->
+    <div class="relative z-10 w-full px-16 py-16 flex justify-between items-start gap-12">
+
+        <!-- IZQUIERDA -->
+        <div class="w-2/3">
+            <p data-i18n="footer_texto" class="text-sm leading-relaxed text-justify mb-10">
+                Nuestro propósito es unir a los agricultores de palta para compartir 
+                conocimientos, innovar en técnicas de cultivo y fortalecer nuestra 
+                presencia en el mercado global, asegurando un futuro próspero para 
+                todos nuestros miembros.
+            </p>
+
+            <p class="text-sm mb-2">RUC: 20605371869</p>
+            <p class="text-sm mb-2">aaphalperu@gmail.com</p>
+
+            <a href="#" data-i18n="politicas" class="block text-sm hover:text-yellow-300 mb-2">Políticas</a>
+            <a href="#" data-i18n="terminos" class="block text-sm hover:text-yellow-300 mb-2">Términos</a>
+            <a href="#" data-i18n="libro" class="block text-sm hover:text-yellow-300">Libro de reclamaciones</a>
+        </div>
+
+        <!-- DERECHA -->
+    <div class="text-right w-1/3">
+        <a data-i18n="inicio" href="{{ url_for('index') }}" class="block text-sm hover:text-yellow-300 mb-4">Inicio</a>
+        <a data-i18n="nosotros" href="{{ url_for('nosotros') }}" class="block text-sm hover:text-yellow-300 mb-4">Nosotros</a>
+        <a data-i18n="produccion" href="{{ url_for('produccion') }}" class="block text-sm hover:text-yellow-300 mb-4">Producción Agricola</a>
+        <a data-i18n="servicios" href="{{ url_for('servicios') }}" class="block text-sm hover:text-yellow-300 mb-4">Servicios</a>
+        <a data-i18n="noticias" href="{{ url_for('noticias') }}" class="block text-sm hover:text-yellow-300 mb-4">Noticias</a>
+        <a data-i18n="alianzas" href="{{ url_for('alianzas') }}" class="block text-sm hover:text-yellow-300 mb-10">Alianzas</a>
+        <p data-i18n="copyright" class="text-xs">
+            © 2026 Asociación de Agricultores de Palta en Huampali - Alto Laran
+        </p>
+
+        <p data-i18n="derechos" class="text-xs">
+            Todos los derechos reservados
+        </p>
+
+    </div>
+
+<!-- ================= JS ================= -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

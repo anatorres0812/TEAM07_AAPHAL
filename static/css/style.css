@@ -1,0 +1,72 @@
+/* =========================
+   AAPHAL RESPONSIVE LIMPIO
+   ========================= */
+
+body {
+    overflow-x: hidden;
+}
+
+/* imágenes y media */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* scroll suave (backup) */
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   MOBILE FIRST FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* SOLO FLEX CONTROLADO (NO GLOBAL) */
+    .stack-mobile {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    /* columnas */
+    .w-1\/2,
+    .w-1\/3,
+    .w-2\/3 {
+        width: 100% !important;
+    }
+
+    /* títulos grandes */
+    .text-6xl {
+        font-size: 2.2rem !important;
+    }
+
+    iframe {
+        height: 350px !important;
+    }
+
+    /* redes sociales */
+    .gap-28 {
+        gap: 1.5rem !important;
+    }
+}
+
+/* =========================
+   PC GRANDE
+   ========================= */
+@media (min-width: 1600px) {
+
+    section {
+        max-width: 1400px;
+        margin: auto;
+    }
+}

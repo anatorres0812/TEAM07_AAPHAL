@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- ===== HERO NOSOTROS ===== -->
+<section class="relative h-96 flex items-center justify-center overflow-hidden">
+
+    <div class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('{{ url_for('static', filename='image/campo/campo8.png') }}');">
+    </div>
+
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative z-10 text-center">
+        <h1 class="text-3xl md:text-4xl font-semibold text-white tracking-widest">
+            NOSOTROS
+        </h1>
+    </div>
+
+</section>
+
+<!-- ===== CONTENIDO NOSOTROS ===== -->
+<section class="bg-gray-100 py-16 px-10">
+
+    <div class="max-w-6xl mx-auto">
+
+        <!-- BLOQUE SUPERIOR -->
+        <div class="flex gap-10">
+
+            <!-- TEXTO -->
+            <div class="w-2/4 text-sm text-gray-800 leading-relaxed text-justify">
+                <p>
+                    Somos una asociación de agricultores dedicada al cultivo de palta, ubicada en Huamanpali, distrito de Alto Larán, provincia de Chincha. Nuestra actividad se desarrolla en una zona agrícola con gran potencial productivo, lo que nos permite trabajar en condiciones favorables para la calidad de nuestros cultivos.
+                </p>
+                <br>
+                <p>
+                    Nuestra organización nace con el propósito de unir a los productores locales, fomentando el trabajo asociativo como una herramienta clave para el desarrollo del sector agrícola. Buscamos que cada agricultor pueda fortalecerse a través de la cooperación, el intercambio de conocimientos y la mejora continua de sus técnicas de producción.
+                </p>
+                <br>
+                <p>
+                    Nos dedicamos principalmente a la producción y comercialización de palta, aplicando prácticas agrícolas responsables y sostenibles. Esto incluye el uso adecuado del suelo, el cuidado del recurso hídrico y la implementación de métodos que respetan el medio ambiente, garantizando así un producto de alta calidad.
+                </p>
+            </div>
+
+            <!-- IMAGEN DERECHA (ARRIBA) -->
+            <div class="w-1/2">
+                <img src="{{ url_for('static', filename='image/campo/cosechando4.png') }}" 
+                     class="w-full h-90 object-cover">
+            </div>
+
+        </div>
+
+        <!-- TEXTO INFERIOR -->
+        <div class="mt-6 text-sm text-gray-800 leading-relaxed text-justify">
+            <p>
+                A lo largo de los años, hemos venido creciendo de manera constante, gracias al esfuerzo de nuestros asociados y al compromiso con la mejora continua. Hemos incorporado nuevas técnicas de cultivo, participación en capacitaciones y asesoramiento técnico, lo que nos ha permitido optimizar nuestros procesos productivos.
+            </p>
+            <br>
+            <p>
+                Además, promovemos la capacitación constante de nuestros agricultores, entendiendo que el conocimiento es clave para mejorar la productividad y enfrentar los desafíos del mercado agrícola actual. Esto nos permite mantenernos actualizados y competitivos frente a las exigencias del sector.
+
+                Hoy en día, seguimos trabajando con una visión clara: consolidarnos como una asociación líder en la producción de palta, reconocida por la calidad de nuestro producto, nuestras buenas prácticas agrícolas y nuestro aporte al desarrollo económico de nuestra comunidad, tanto a nivel nacional como internacional.
+            </p>
+        </div>
+
+<!-- ===== NUESTROS ASOCIADOS ===== -->
+<section class="bg-[#556B2F] py-16 px-8 text-center mt-20">
+
+    <h2 class="text-white text-xl font-semibold tracking-widest mb-10">
+        NUESTROS ASOCIADOS
+    </h2>
+
+    <!-- SLIDER -->
+    <div class="max-w-4xl mx-auto mt-12">
+        <img id="sliderAsociados"
+            src="{{ url_for('static', filename='image/otros/noticias1.png') }}"
+            class="w-full h-72 object-cover mx-auto rounded-lg shadow-md">
+    </div>
+
+    <!-- TEXTO -->
+    <p class="text-white text-sm mt-10 max-w-xl mx-auto">
+        Actualmente nuestra asociación está conformada por agricultores de la zona de Huamanpali y alrededores, quienes trabajan de manera organizada en el cultivo de palta.
+    </p>
+
+</section>
+
+<!-- ===== SCRIPT RULETA ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const imagenes = [
+        "{{ url_for('static', filename='image/otros/noticias1.png') }}",
+        "{{ url_for('static', filename='image/otros/noticias2.png') }}",
+        "{{ url_for('static', filename='image/otros/noticias3.png') }}",
+        "{{ url_for('static', filename='image/otros/noticias6.png') }}",
+        "{{ url_for('static', filename='image/otros/noticias7.png') }}"
+    ];
+
+    let i = 0;
+    const slider = document.getElementById("sliderAsociados");
+
+    setInterval(() => {
+
+        // efecto fade
+        slider.style.opacity = 0;
+
+        setTimeout(() => {
+            i = (i + 1) % imagenes.length;
+            slider.src = imagenes[i];
+            slider.style.opacity = 1;
+        }, 400);
+
+    }, 3000); // cambia cada 3 segundos
+
+});
+</script>
+
+{% endblock %}
